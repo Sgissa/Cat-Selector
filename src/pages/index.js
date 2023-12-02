@@ -10,7 +10,8 @@ export default function Home() {
     fetch(`https://api.thecatapi.com/v1/images/search?mime_types=jpg,png&format=json&has_breeds=true&order=RANDOM&limit=10`)
     .then(r=> r.json())
     .then(r=> {
-      console.log(r)
+      console.log(r);
+      setCatImage(r);
     })
     .catch((e) => {
       console.warn(e);
