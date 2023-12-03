@@ -15,13 +15,14 @@ export default function Home() {
     })
     .catch((e) => {
       console.warn(e);
+      console.log(catImages);
     });
 
   }
 
 
   return (
-    <>
+  <>
     <Grid columns='1'>
       <Grid.Column>
         <Header as='h1'>Random Cats</Header>
@@ -30,13 +31,12 @@ export default function Home() {
         <Button content='Reload Cats' icon='sync' color='blue' onClick={getCatImages}/>
       </Grid.Column>
       <Grid.Row columns='5'>
-        {catImages.map((catImage) => {
-          return
-           <CatImage key={catImage.id} src={catImage.url}/>;
-        })}
-        
+        {catImages.map((catImage) => (
+          <CatImage key={catImage.id} src={catImage.url}/>
+        ))}
       </Grid.Row>
     </Grid>
-    </>
-  );
+  </>
+);
+
 }
